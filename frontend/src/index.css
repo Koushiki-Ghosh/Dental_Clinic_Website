@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap');
+
+:root {
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+  color: #213431;
+  background: #fff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  --color-primary: #174e49;
+  --color-primary-dark: #103d39;
+  --color-primary-soft: #e4f1ed;
+  --color-secondary: #e9f3f5;
+  --color-accent: #df8d70;
+  --color-bg: #fff;
+  --color-bg-soft: #f7faf8;
+  --color-text: #213431;
+  --color-muted: #667873;
+  --color-border: #e1e9e5;
+  --color-success: #2e755b;
+  --color-warning: #a86636;
+  --color-error: #b74942;
+  --radius-sm: 5px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
+  --shadow-soft: 0 14px 40px rgba(25, 65, 58, 0.08);
+  --font-display: 'Fraunces', Georgia, serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { min-width: 320px; scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+body, button, input, select, textarea { font-family: 'DM Sans', 'Segoe UI', sans-serif; }
+button, input, select, textarea { font-size: inherit; }
+button { color: inherit; }
+a { color: inherit; }
+img { display: block; max-width: 100%; }
+p { margin: 0; }
+h1, h2, h3, h4 { margin: 0; color: var(--color-text); font-weight: 500; }
+ul, ol { margin-top: 0; }
+::selection { color: #fff; background: var(--color-primary); }
+:focus-visible { outline: 3px solid #df8d70; outline-offset: 3px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }

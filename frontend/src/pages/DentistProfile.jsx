@@ -1,0 +1,13 @@
+import { ArrowLeft, BadgeCheck, CalendarDays, Languages, MapPin, Star } from 'lucide-react'
+import { Link, useParams } from 'react-router-dom'
+import Button from '../components/Button.jsx'
+import { dentists } from '../data/demoData.js'
+
+function DentistProfile() {
+  const { id } = useParams()
+  const dentist = dentists.find((item) => item.id === id)
+  if (!dentist) return <section className="empty-page wrap"><h1>That profile isn’t here.</h1><Link className="text-link" to="/dentists"><ArrowLeft size={16} /> Back to the team</Link></section>
+  return <><div className="breadcrumbs wrap"><Link to="/dentists"><ArrowLeft size={15} /> Meet the team</Link><span>/</span><span>{dentist.name}</span></div><section className="profile-hero"><div className="wrap profile-hero-grid"><div className="profile-photo"><img src={dentist.image} alt={`Portrait of fictional demo dentist ${dentist.name}`} /><span>Fictional demo profile</span></div><div className="profile-intro"><span className="eyebrow">{dentist.specialization}</span><h1>{dentist.name}</h1><p className="profile-qualification">{dentist.qualification} <span>·</span> {dentist.role}</p><p>{dentist.bio}</p><div className="profile-stats"><div><strong>{dentist.experience}</strong><span>Experience</span></div><div><strong className="profile-rating"><Star size={16} fill="currentColor" /> {dentist.rating}</strong><span>Demo rating</span></div></div><Button to={`/appointment?dentist=${dentist.id}`} icon>Book an appointment</Button></div></div></section><section className="profile-details section-space"><div className="wrap profile-details-grid"><div><span className="eyebrow">Areas of expertise</span><h2>What Dr. {dentist.name.split(' ').at(-1)} focuses on</h2><div className="profile-expertise">{dentist.specialties.map((item) => <span key={item}><BadgeCheck size={17} />{item}</span>)}</div><h3>Treatments offered</h3><ul className="profile-treatment-list">{dentist.treatments.map((treatment) => <li key={treatment}>{treatment}</li>)}</ul></div><aside className="profile-info-panel"><h2>At a glance</h2><p><CalendarDays size={17} /><span><small>Next available</small><strong>{dentist.nextAvailable}</strong></span></p><p><Languages size={17} /><span><small>Languages</small><strong>{dentist.languages.join(', ')}</strong></span></p><p><MapPin size={17} /><span><small>Clinic location</small><strong>{dentist.location}</strong></span></p><div className="profile-slots"><span>Other demo slots</span>{dentist.nextSlots.slice(1).map((slot) => <strong key={slot}>{slot}</strong>)}</div><Button to={`/appointment?dentist=${dentist.id}`}>Choose a visit</Button></aside></div></section></>
+}
+
+export default DentistProfile
