@@ -8,6 +8,8 @@ import Dentists from './pages/Dentists.jsx'
 import DentistProfile from './pages/DentistProfile.jsx'
 import Appointment from './pages/Appointment.jsx'
 import Contact from './pages/Contact.jsx'
+import Login from './pages/Login.jsx'
+import Profile from './pages/Profile.jsx'
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path="/dentists/:id" element={<DentistProfile />} />
           <Route path="/appointment" element={<Appointment />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
